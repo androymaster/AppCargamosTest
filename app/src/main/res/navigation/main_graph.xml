@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/movieAndSeriesFragment">
+
+    <fragment
+        android:id="@+id/movieAndSeriesFragment"
+        android:name="com.example.appcargamostest.ui.main.MovieAndSeriesFragment"
+        android:label="fragment_movie_and_series"
+        tools:layout="@layout/fragment_movie_and_series" >
+        <action
+            android:id="@+id/action_movieAndSeriesFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.appcargamostest.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="backgroundImageUrl"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="overview"
+            app:argType="string" />
+        <argument android:name="posterImageUrl"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailFragment_to_favoritesMoviesFragment"
+            app:destination="@id/favoritesMoviesFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out" />
+        <argument
+            android:name="language"
+            app:argType="string" />
+        <argument
+            android:name="voteAverage"
+            app:argType="float" />
+        <argument
+            android:name="voteCount"
+            app:argType="integer" />
+        <argument
+            android:name="releaseDate"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesMoviesFragment"
+        android:name="com.example.appcargamostest.ui.favorites.FavoritesMoviesFragment"
+        android:label="fragment_favorites_movies"
+        tools:layout="@layout/fragment_favorites_movies" />
+</navigation>
